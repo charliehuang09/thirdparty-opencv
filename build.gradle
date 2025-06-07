@@ -37,7 +37,7 @@ ext {
             '-DWITH_OPENCL=OFF',
             '-DWITH_FFMPEG=OFF',
             '-DWITH_OPENEXR=OFF',
-            '-DWITH_GSTREAMER=OFF',
+            '-DWITH_GSTREAMER=ON',
             '-DWITH_LAPACK=OFF',
             '-DWITH_GTK=OFF',
             '-DWITH_1394=OFF',
@@ -182,14 +182,14 @@ if (project.platform == "linux-athena") {
     stripExe = 'arm-frc2025-linux-gnueabi-strip'
     objCopyExe = 'arm-frc2025-linux-gnueabi-objcopy'
 } else if (project.platform == "linux-arm32") {
-    stripExe = 'armv6-bookworm-linux-gnueabihf-strip'
-    objCopyExe = 'armv6-bookworm-linux-gnueabihf-objcopy'
+    stripExe = 'armv6-linux-gnueabihf-strip'
+    objCopyExe = 'armv6-linux-gnueabihf-objcopy'
 } else if (project.platform == "linux-arm64") {
-    stripExe = 'aarch64-bookworm-linux-gnu-strip'
-    objCopyExe = 'aarch64-bookworm-linux-gnu-objcopy'
+    stripExe = 'aarch64-linux-gnu-strip'
+    objCopyExe = 'aarch64-linux-gnu-objcopy'
 } else if (project.platform == "linux-systemcore") {
-    stripExe = 'aarch64-bookworm-linux-gnu-strip'
-    objCopyExe = 'aarch64-bookworm-linux-gnu-objcopy'
+    stripExe = 'aarch64-linux-gnu-strip'
+    objCopyExe = 'aarch64-linux-gnu-objcopy'
 }
 
 ['': project.cmakeBuildDirectory,
@@ -478,5 +478,5 @@ if (!project.hasProperty('skipDebug')) {
 apply from: 'publish.gradle'
 
 wrapper {
-    gradleVersion = '8.1'
+    gradleVersion = '8.11'
 }
